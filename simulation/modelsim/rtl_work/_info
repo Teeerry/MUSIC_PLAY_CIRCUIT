@@ -1,0 +1,67 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\Altera_QuartusII_13.0\FPGA_2016141067_43\MUSIC_PLAY_CIRCUIT\simulation\modelsim
+vF_CODE
+!i10b 1
+!s100 A;NEaV4WQ==Z0MdmcQeIU2
+IgaYa;zWibLPK`AiKMBl9`2
+V:mJ?IM_bOML]8[Eg<d>Ik0
+Z1 dD:\Altera_QuartusII_13.0\FPGA_2016141067_43\MUSIC_PLAY_CIRCUIT\simulation\modelsim
+w1555954371
+8D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes/F_CODE.v
+FD:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes/F_CODE.v
+L0 2
+Z2 OV;L;10.1d;51
+r1
+!s85 0
+31
+!s108 1555973173.666000
+!s107 D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes/F_CODE.v|
+!s90 -reportprogress|300|-work|work|D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes/F_CODE.v|
+!s101 -O0
+o-work work -O0
+n@f_@c@o@d@e
+vSPKER
+I?[@81lX3VP]JmekAK:JVh2
+VEo:=3ZoTX6ekid62[IZ9<3
+R1
+w1555970884
+8D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes/SPKER.v
+FD:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes/SPKER.v
+L0 2
+R2
+r1
+31
+Z3 o-vlog01compat -work work -O0
+n@s@p@k@e@r
+Z4 !s92 -vlog01compat -work work {+incdir+D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes} -O0
+!i10b 1
+!s100 DjN1<ABh:LFBKJHQeYHg_2
+!s85 0
+!s108 1555973146.226000
+!s107 D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes/SPKER.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes|D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes/SPKER.v|
+!s101 -O0
+vSPKER_tb
+I@?`dczFPnhL5O8al@h3RO0
+VnMHZ=6DJckkTdGYe6WH641
+R1
+w1555972909
+8D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes/SPKER_tb.v
+FD:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes/SPKER_tb.v
+L0 2
+R2
+r1
+31
+R3
+R4
+n@s@p@k@e@r_tb
+!i10b 1
+!s100 G>@kWkigLR8:IN_?h;hEj0
+!s85 0
+!s108 1555973146.758000
+!s107 D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes/SPKER_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes|D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes/SPKER_tb.v|
+!s101 -O0

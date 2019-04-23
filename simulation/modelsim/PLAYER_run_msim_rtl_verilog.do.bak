@@ -1,0 +1,17 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vlog -vlog01compat -work work +incdir+C:/Users/yuanc/Documents/FPGA/MUSIC_PLAY_CIRCUIT/source\ codes {C:/Users/yuanc/Documents/FPGA/MUSIC_PLAY_CIRCUIT/source codes/SPKER.v}
+vlog -vlog01compat -work work +incdir+C:/Users/yuanc/Documents/FPGA/MUSIC_PLAY_CIRCUIT/source\ codes {C:/Users/yuanc/Documents/FPGA/MUSIC_PLAY_CIRCUIT/source codes/FDIV.v}
+vlog -vlog01compat -work work +incdir+C:/Users/yuanc/Documents/FPGA/MUSIC_PLAY_CIRCUIT/source\ codes {C:/Users/yuanc/Documents/FPGA/MUSIC_PLAY_CIRCUIT/source codes/F_CODE.v}
+vlog -vlog01compat -work work +incdir+C:/Users/yuanc/Documents/FPGA/MUSIC_PLAY_CIRCUIT/source\ codes {C:/Users/yuanc/Documents/FPGA/MUSIC_PLAY_CIRCUIT/source codes/CNT138T.v}
+vlog -vlog01compat -work work +incdir+C:/Users/yuanc/Documents/FPGA/MUSIC_PLAY_CIRCUIT/source\ codes {C:/Users/yuanc/Documents/FPGA/MUSIC_PLAY_CIRCUIT/source codes/PLAYER.v}
+vlog -vlog01compat -work work +incdir+C:/Users/yuanc/Documents/FPGA/MUSIC_PLAY_CIRCUIT/ip_core/rom {C:/Users/yuanc/Documents/FPGA/MUSIC_PLAY_CIRCUIT/ip_core/rom/MUSIC.v}
+vlog -vlog01compat -work work +incdir+C:/Users/yuanc/Documents/FPGA/MUSIC_PLAY_CIRCUIT/ip_core/pll {C:/Users/yuanc/Documents/FPGA/MUSIC_PLAY_CIRCUIT/ip_core/pll/PLL25.v}
+vlog -vlog01compat -work work +incdir+C:/Users/yuanc/Documents/FPGA/MUSIC_PLAY_CIRCUIT/source\ codes {C:/Users/yuanc/Documents/FPGA/MUSIC_PLAY_CIRCUIT/source codes/DFF1.v}
+vlog -vlog01compat -work work +incdir+C:/Users/yuanc/Documents/FPGA/MUSIC_PLAY_CIRCUIT/db {C:/Users/yuanc/Documents/FPGA/MUSIC_PLAY_CIRCUIT/db/pll25_altpll.v}
+
