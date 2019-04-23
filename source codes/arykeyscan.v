@@ -8,15 +8,21 @@ module arykeyscan(
 	input rst_n,							// 外部复位信号，低电平有效
 	input[3:0] key_v,						// 4个列按键输入
 	output reg[3:0] key_h,				// 4个行按键输出
-	output reg[15:0] display_num 		// 数码管显示数据
+	output reg[15:0] display_num	 	// 数码管显示数据
+//	output keep_press						// 矩阵按钮长按标志
 );
 //-----------------------------------------------------------
-wire[3:0] keyv_value;					// 列按键按下键值,高电平有效
+wire[3:0] keyv_value;		// 列按键按下键值,高电平有效
+wire keydown ;			//有按键被按下			
+wire keyup ;			//有按键被释放
+
 sigkeyscan uut_sigkeyscan(
 	.clk(clk),
 	.rst_n(rst_n),
 	.key_v(key_v),
-	.keyv_value(keyv_value)
+	.keyv_value(keyv_value),
+	.key_neg(keydown),
+	.key_pos(keyup)
 );
 
 //-----------------------------------------------------------
@@ -51,7 +57,7 @@ always @ (posedge clk or negedge rst_n)
 //----------------------------------------------------------------
 // 采样键值
 reg[3:0] new_value;		// 新采样的数据
-reg new_rdy;				// 采样数据有效标志
+reg new_rdy = 1'b0;		// 采样数据有效标志
 
 always @ (posedge clk or negedge rst_n)
 	if(!rst_n) begin
@@ -193,10 +199,16 @@ always @ (posedge clk or negedge rst_n)
 		
 //------------------------------------------------------------
 // 产生新的键值
-always @ (posedge clk or negedge rst_n)
-	if(!rst_n)			display_num <= 16'h0000;
-	else if(new_rdy)  display_num <= {display_num[11:0],new_value};
-
+always @ (posedge clk or negedge rst_n) begin
+	if(!rst_n)	display_num <= 16'h0000;
+	else if(new_rdy)	// 按下按键，更新键值
+		begin
+			display_num <= {display_num[11:0],new_value};
+//			new_rdy = 1'b0;
+		end	
+//	if (rst_n && keyup)
+//		new_rdy = 1'b0;
+	end
 endmodule
 	
 				

@@ -1,6 +1,14 @@
 |PLAYER
-ext_clk_25m => ext_clk_25m.IN2
-ext_rst_n => ext_rst_n.IN1
+ext_clk_25m => ext_clk_25m.IN4
+ext_rst_n => ext_rst_n.IN3
+key_v[0] => key_v[0].IN1
+key_v[1] => key_v[1].IN1
+key_v[2] => key_v[2].IN1
+key_v[3] => key_v[3].IN1
+switch[0] => switch[0].IN1
+switch[1] => switch[1].IN1
+switch[2] => switch[2].IN1
+switch[3] => switch[3].IN1
 led[0] <= F_CODE:F_CODE_inst.H
 led[1] <= F_CODE:F_CODE_inst.H
 led[2] <= F_CODE:F_CODE_inst.H
@@ -22,6 +30,10 @@ dtube_data[5] <= seg7:uut_seg7.dtube_data
 dtube_data[6] <= seg7:uut_seg7.dtube_data
 dtube_data[7] <= seg7:uut_seg7.dtube_data
 spk_kk <= DFF1:DFF1_inst.Q
+key_h[0] <= arykeyscan:uut_arykeyscan.key_h
+key_h[1] <= arykeyscan:uut_arykeyscan.key_h
+key_h[2] <= arykeyscan:uut_arykeyscan.key_h
+key_h[3] <= arykeyscan:uut_arykeyscan.key_h
 
 
 |PLAYER|PLL25:PLL25_inst
@@ -125,6 +137,16 @@ CLK => CNT[4].CLK
 CLK => CNT[5].CLK
 CLK => CNT[6].CLK
 CLK => CNT[7].CLK
+CLK => CNT[8].CLK
+CLK => CNT[9].CLK
+STATE[0] => Equal0.IN0
+STATE[0] => Equal2.IN3
+STATE[1] => Equal0.IN3
+STATE[1] => Equal2.IN0
+STATE[2] => Equal0.IN2
+STATE[2] => Equal2.IN2
+STATE[3] => Equal0.IN1
+STATE[3] => Equal2.IN1
 CNT8[0] <= CNT[0].DB_MAX_OUTPUT_PORT_TYPE
 CNT8[1] <= CNT[1].DB_MAX_OUTPUT_PORT_TYPE
 CNT8[2] <= CNT[2].DB_MAX_OUTPUT_PORT_TYPE
@@ -133,6 +155,8 @@ CNT8[4] <= CNT[4].DB_MAX_OUTPUT_PORT_TYPE
 CNT8[5] <= CNT[5].DB_MAX_OUTPUT_PORT_TYPE
 CNT8[6] <= CNT[6].DB_MAX_OUTPUT_PORT_TYPE
 CNT8[7] <= CNT[7].DB_MAX_OUTPUT_PORT_TYPE
+CNT8[8] <= CNT[8].DB_MAX_OUTPUT_PORT_TYPE
+CNT8[9] <= CNT[9].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |PLAYER|MUSIC:MUSIC_inst
@@ -248,13 +272,18 @@ q_a[3] <= ram_block1a3.PORTADATAOUT
 
 
 |PLAYER|F_CODE:F_CODE_inst
-INX[0] => Decoder0.IN3
-INX[0] => Decoder1.IN2
-INX[1] => Decoder0.IN2
-INX[1] => Decoder1.IN1
-INX[2] => Decoder0.IN1
-INX[3] => Decoder0.IN0
-INX[3] => Decoder1.IN0
+INX[0] => INPUT_FOR_CODE[0].DATAA
+INX[1] => INPUT_FOR_CODE[1].DATAA
+INX[2] => INPUT_FOR_CODE[2].DATAA
+INX[3] => INPUT_FOR_CODE[3].DATAA
+KEYVALUE[0] => INPUT_FOR_CODE[0].DATAB
+KEYVALUE[1] => INPUT_FOR_CODE[1].DATAB
+KEYVALUE[2] => INPUT_FOR_CODE[2].DATAB
+KEYVALUE[3] => INPUT_FOR_CODE[3].DATAB
+STATE[0] => Equal0.IN1
+STATE[1] => Equal0.IN0
+STATE[2] => Equal0.IN3
+STATE[3] => Equal0.IN2
 CODE[0] <= WideOr11.DB_MAX_OUTPUT_PORT_TYPE
 CODE[1] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
 CODE[2] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
@@ -383,5 +412,138 @@ dtube_data[4] <= dtube_data[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 dtube_data[5] <= dtube_data[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 dtube_data[6] <= dtube_data[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 dtube_data[7] <= dtube_data[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|PLAYER|arykeyscan:uut_arykeyscan
+clk => clk.IN1
+rst_n => rst_n.IN1
+key_v[0] => key_v[0].IN1
+key_v[1] => key_v[1].IN1
+key_v[2] => key_v[2].IN1
+key_v[3] => key_v[3].IN1
+key_h[0] <= key_h[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+key_h[1] <= key_h[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+key_h[2] <= key_h[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+key_h[3] <= key_h[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display_num[0] <= display_num[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display_num[1] <= display_num[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display_num[2] <= display_num[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display_num[3] <= display_num[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display_num[4] <= display_num[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display_num[5] <= display_num[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display_num[6] <= display_num[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display_num[7] <= display_num[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display_num[8] <= display_num[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display_num[9] <= display_num[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display_num[10] <= display_num[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display_num[11] <= display_num[11]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display_num[12] <= display_num[12]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display_num[13] <= display_num[13]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display_num[14] <= display_num[14]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+display_num[15] <= display_num[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|PLAYER|arykeyscan:uut_arykeyscan|sigkeyscan:uut_sigkeyscan
+clk => key_value[0][0].CLK
+clk => key_value[0][1].CLK
+clk => key_value[0][2].CLK
+clk => key_value[0][3].CLK
+clk => key_value[1][0].CLK
+clk => key_value[1][1].CLK
+clk => key_value[1][2].CLK
+clk => key_value[1][3].CLK
+clk => cnt[0].CLK
+clk => cnt[1].CLK
+clk => cnt[2].CLK
+clk => cnt[3].CLK
+clk => cnt[4].CLK
+clk => cnt[5].CLK
+clk => cnt[6].CLK
+clk => cnt[7].CLK
+clk => cnt[8].CLK
+clk => cnt[9].CLK
+clk => cnt[10].CLK
+clk => cnt[11].CLK
+clk => cnt[12].CLK
+clk => cnt[13].CLK
+clk => cnt[14].CLK
+clk => cnt[15].CLK
+clk => cnt[16].CLK
+clk => cnt[17].CLK
+clk => cnt[18].CLK
+clk => cnt[19].CLK
+clk => keyr[0].CLK
+clk => keyr[1].CLK
+clk => keyr[2].CLK
+clk => keyr[3].CLK
+rst_n => cnt[0].ACLR
+rst_n => cnt[1].ACLR
+rst_n => cnt[2].ACLR
+rst_n => cnt[3].ACLR
+rst_n => cnt[4].ACLR
+rst_n => cnt[5].ACLR
+rst_n => cnt[6].ACLR
+rst_n => cnt[7].ACLR
+rst_n => cnt[8].ACLR
+rst_n => cnt[9].ACLR
+rst_n => cnt[10].ACLR
+rst_n => cnt[11].ACLR
+rst_n => cnt[12].ACLR
+rst_n => cnt[13].ACLR
+rst_n => cnt[14].ACLR
+rst_n => cnt[15].ACLR
+rst_n => cnt[16].ACLR
+rst_n => cnt[17].ACLR
+rst_n => cnt[18].ACLR
+rst_n => cnt[19].ACLR
+rst_n => keyr[0].PRESET
+rst_n => keyr[1].PRESET
+rst_n => keyr[2].PRESET
+rst_n => keyr[3].PRESET
+rst_n => key_value[0][0].PRESET
+rst_n => key_value[0][1].PRESET
+rst_n => key_value[0][2].PRESET
+rst_n => key_value[0][3].PRESET
+rst_n => key_value[1][0].PRESET
+rst_n => key_value[1][1].PRESET
+rst_n => key_value[1][2].PRESET
+rst_n => key_value[1][3].PRESET
+key_v[0] => key.IN0
+key_v[0] => key_value[0][0].DATAIN
+key_v[1] => key.IN1
+key_v[1] => key_value[0][1].DATAIN
+key_v[2] => key.IN1
+key_v[2] => key_value[0][2].DATAIN
+key_v[3] => key.IN1
+key_v[3] => key_value[0][3].DATAIN
+keyv_value[0] <= keyv_value.DB_MAX_OUTPUT_PORT_TYPE
+keyv_value[1] <= keyv_value.DB_MAX_OUTPUT_PORT_TYPE
+keyv_value[2] <= keyv_value.DB_MAX_OUTPUT_PORT_TYPE
+keyv_value[3] <= keyv_value.DB_MAX_OUTPUT_PORT_TYPE
+key_neg <= key_neg.DB_MAX_OUTPUT_PORT_TYPE
+key_pos <= key_pos.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|PLAYER|STATE_CONTROL:STATE_CONTROL_inst
+clk => cstate[0]~reg0.CLK
+clk => cstate[1]~reg0.CLK
+clk => cstate[2]~reg0.CLK
+clk => cstate[3]~reg0.CLK
+rst_n => cstate[0]~reg0.PRESET
+rst_n => cstate[1]~reg0.ACLR
+rst_n => cstate[2]~reg0.ACLR
+rst_n => cstate[3]~reg0.ACLR
+switch[0] => Equal0.IN3
+switch[0] => Equal1.IN3
+switch[1] => Equal0.IN2
+switch[1] => Equal1.IN2
+switch[2] => Equal0.IN0
+switch[2] => Equal1.IN1
+switch[3] => Equal0.IN1
+switch[3] => Equal1.IN0
+cstate[0] <= cstate[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cstate[1] <= cstate[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cstate[2] <= cstate[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cstate[3] <= cstate[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 

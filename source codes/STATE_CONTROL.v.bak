@@ -1,0 +1,30 @@
+module STATE_CONTROL (
+	input rst,
+	input [3:0] key;
+	);
+	
+	reg[3:0] STATE;
+	
+	parameter k1 = 4'b1000;
+	parameter k2 = 4'b0100;	
+	parameter s1 = 4'b0001;	
+	parameter s2 = 4'b0010;	
+	parameter s3 = 4'b0011;	
+	
+	
+	initial STATE = s1;
+	always @ (negedge rst)
+		if (!rst) STATE = s1;
+	
+	always @ (key) begin
+		case(key)
+			k1: if 		( STATE != s3 ) STATE <= s3;
+				 else 						 STATE <= s1;
+			k2: if      ( STATE == s1 ) STATE <= s2;
+				 else if ( STATE == s2 ) STATE <= s1;
+				 end
+			default: ;
+		endcase
+	end
+	
+endmodule 

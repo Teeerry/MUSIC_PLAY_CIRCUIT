@@ -2,7 +2,9 @@ module sigkeyscan(
 			input clk,						//外部输入25MHz时钟信号
 			input rst_n,					//外部输入复位信号，低电平有效
 			input[3:0] key_v,				//4个列按键输入，未按下为高电平，按下后为低电平
-			output[3:0] keyv_value		//列按键按下键值，高电平有效	
+			output[3:0] keyv_value,		//列按键按下键值，高电平有效	
+			output key_neg,				//有按键被按下	
+			output key_pos					//有按键被释放
     		);
 
 //-------------------------------------
@@ -16,8 +18,8 @@ always @(posedge clk or negedge rst_n)
     if (!rst_n) keyr <= 4'b1111;
     else keyr <= {keyr[2:0],key};
 
-wire key_neg = ~keyr[2] & keyr[3];	//有按键被按下	
-wire key_pos = keyr[2] & ~keyr[3];	//有按键被释放
+assign key_neg = ~keyr[2] & keyr[3];	//有按键被按下	
+assign key_pos = keyr[2] & ~keyr[3];	//有按键被释放
 
 //-------------------------------------
 //定时计数逻辑，用于对按键的消抖判断
