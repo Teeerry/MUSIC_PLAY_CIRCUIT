@@ -1,0 +1,6 @@
+// 从 ROM 读取乐谱
+module FETCH_MUSIC(
+
+);
+
+endmodule 

@@ -10,55 +10,28 @@
 # ** Warning: Copied C:\altera\13.0\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vlog -vlog01compat -work work +incdir+D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source\ codes {D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes/SPKER.v}
+# vlog -vlog01compat -work work +incdir+D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source\ codes {D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes/CNT138T.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module SPKER
+# -- Compiling module CNT138T
 # 
 # Top level modules:
-# 	SPKER
+# 	CNT138T
 # 
-# vlog -vlog01compat -work work +incdir+D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source\ codes {D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes/SPKER_tb.v}
+# vlog -vlog01compat -work work +incdir+D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source\ codes {D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes/CNT138T_tb.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module SPKER_tb
-# ** Warning: D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes/SPKER_tb.v(40): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# 
+# -- Compiling module CNT138T_tb
 # 
 # Top level modules:
-# 	SPKER_tb
+# 	CNT138T_tb
 # 
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  SPKER_tb
-# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps SPKER_tb 
-# Loading work.SPKER_tb
-# ** Error: (vsim-3033) D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes/SPKER_tb.v(18): Instantiation of 'F_CODE' failed. The design unit was not found.
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  CNT138T_tb
+# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps CNT138T_tb 
+# Loading work.CNT138T_tb
+# Loading work.CNT138T
 # 
-#         Region: /SPKER_tb
-#         Searched libraries:
-#             C:/altera/13.0/modelsim_ase/altera/verilog/altera
-#             C:/altera/13.0/modelsim_ase/altera/verilog/220model
-#             C:/altera/13.0/modelsim_ase/altera/verilog/sgate
-#             C:/altera/13.0/modelsim_ase/altera/verilog/altera_mf
-#             C:/altera/13.0/modelsim_ase/altera/verilog/altera_lnsim
-#             C:/altera/13.0/modelsim_ase/altera/verilog/cycloneive
-#             D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/simulation/modelsim/rtl_work
-#             D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/simulation/modelsim/rtl_work
-#             D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/simulation/modelsim/rtl_work
-# Loading work.SPKER
-# Error loading design
-# Error: Error loading design 
-#        Pausing macro execution 
-# MACRO ./PLAYER_run_msim_rtl_verilog.do PAUSED at line 12
-vlog -reportprogress 300 -work work {D:/Altera_QuartusII_13.0/FPGA_2016141067_43/MUSIC_PLAY_CIRCUIT/source codes/F_CODE.v}
-# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
-# -- Compiling module F_CODE
-# 
-# Top level modules:
-# 	F_CODE
-vsim -voptargs=+acc work.SPKER_tb
-# vsim -voptargs=+acc work.SPKER_tb 
-# Loading work.SPKER_tb
-# Loading work.F_CODE
-# Loading work.SPKER
-add wave -r sim:/SPKER_tb/*
-run 60000
-run 60000000
-# WARNING: No extended dataflow license exists
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all

@@ -1,3 +1,4 @@
-Warning (10268): Verilog HDL information at F_CODE.v(15): always construct contains both blocking and non-blocking assignments
-Warning (10268): Verilog HDL information at F_CODE_tb.v(26): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at F_CODE_tb.v(36): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at F_CODE_tb.v(43): always construct contains both blocking and non-blocking assignments
 Warning (10268): Verilog HDL information at SPKER_tb.v(38): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at STATE_CONTROL_tb.v(29): always construct contains both blocking and non-blocking assignments

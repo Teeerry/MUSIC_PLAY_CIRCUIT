@@ -1,6 +1,6 @@
-|PLAYER
+|MUSIC_PLAY_CIRCUIT
 ext_clk_25m => ext_clk_25m.IN4
-ext_rst_n => ext_rst_n.IN3
+ext_rst_n => ext_rst_n.IN4
 key_v[0] => key_v[0].IN1
 key_v[1] => key_v[1].IN1
 key_v[2] => key_v[2].IN1
@@ -9,41 +9,63 @@ switch[0] => switch[0].IN1
 switch[1] => switch[1].IN1
 switch[2] => switch[2].IN1
 switch[3] => switch[3].IN1
-led[0] <= F_CODE:F_CODE_inst.H
-led[1] <= F_CODE:F_CODE_inst.H
-led[2] <= F_CODE:F_CODE_inst.H
-led[3] <= F_CODE:F_CODE_inst.H
-led[4] <= F_CODE:F_CODE_inst.H
-led[5] <= F_CODE:F_CODE_inst.H
-led[6] <= F_CODE:F_CODE_inst.H
-led[7] <= F_CODE:F_CODE_inst.H
-dtube_cs_n[0] <= seg7:uut_seg7.dtube_cs_n
-dtube_cs_n[1] <= seg7:uut_seg7.dtube_cs_n
-dtube_cs_n[2] <= seg7:uut_seg7.dtube_cs_n
-dtube_cs_n[3] <= seg7:uut_seg7.dtube_cs_n
-dtube_data[0] <= seg7:uut_seg7.dtube_data
-dtube_data[1] <= seg7:uut_seg7.dtube_data
-dtube_data[2] <= seg7:uut_seg7.dtube_data
-dtube_data[3] <= seg7:uut_seg7.dtube_data
-dtube_data[4] <= seg7:uut_seg7.dtube_data
-dtube_data[5] <= seg7:uut_seg7.dtube_data
-dtube_data[6] <= seg7:uut_seg7.dtube_data
-dtube_data[7] <= seg7:uut_seg7.dtube_data
-spk_kk <= DFF1:DFF1_inst.Q
-key_h[0] <= arykeyscan:uut_arykeyscan.key_h
-key_h[1] <= arykeyscan:uut_arykeyscan.key_h
-key_h[2] <= arykeyscan:uut_arykeyscan.key_h
-key_h[3] <= arykeyscan:uut_arykeyscan.key_h
+dtube_cs_n[0] <= PLAYER:PLAYER_inst.dtube_cs_n
+dtube_cs_n[1] <= PLAYER:PLAYER_inst.dtube_cs_n
+dtube_cs_n[2] <= PLAYER:PLAYER_inst.dtube_cs_n
+dtube_cs_n[3] <= PLAYER:PLAYER_inst.dtube_cs_n
+dtube_data[0] <= PLAYER:PLAYER_inst.dtube_data
+dtube_data[1] <= PLAYER:PLAYER_inst.dtube_data
+dtube_data[2] <= PLAYER:PLAYER_inst.dtube_data
+dtube_data[3] <= PLAYER:PLAYER_inst.dtube_data
+dtube_data[4] <= PLAYER:PLAYER_inst.dtube_data
+dtube_data[5] <= PLAYER:PLAYER_inst.dtube_data
+dtube_data[6] <= PLAYER:PLAYER_inst.dtube_data
+dtube_data[7] <= PLAYER:PLAYER_inst.dtube_data
+spk_kk <= PLAYER:PLAYER_inst.beep
+key_h[0] <= ELECTRONIC_KEYBOARD:ELECTRONIC_KEYBOARD_inst.key_h
+key_h[1] <= ELECTRONIC_KEYBOARD:ELECTRONIC_KEYBOARD_inst.key_h
+key_h[2] <= ELECTRONIC_KEYBOARD:ELECTRONIC_KEYBOARD_inst.key_h
+key_h[3] <= ELECTRONIC_KEYBOARD:ELECTRONIC_KEYBOARD_inst.key_h
 
 
-|PLAYER|PLL25:PLL25_inst
+|MUSIC_PLAY_CIRCUIT|FETCH_MUSIC:FETCH_MUSIC_inst
+ext_clk_25m => ext_clk_25m.IN1
+ext_rst_n => _.IN1
+end_addr[0] => end_addr[0].IN1
+end_addr[1] => end_addr[1].IN1
+end_addr[2] => end_addr[2].IN1
+end_addr[3] => end_addr[3].IN1
+end_addr[4] => end_addr[4].IN1
+end_addr[5] => end_addr[5].IN1
+end_addr[6] => end_addr[6].IN1
+end_addr[7] => end_addr[7].IN1
+end_addr[8] => end_addr[8].IN1
+end_addr[9] => end_addr[9].IN1
+start_addr[0] => start_addr[0].IN1
+start_addr[1] => start_addr[1].IN1
+start_addr[2] => start_addr[2].IN1
+start_addr[3] => start_addr[3].IN1
+start_addr[4] => start_addr[4].IN1
+start_addr[5] => start_addr[5].IN1
+start_addr[6] => start_addr[6].IN1
+start_addr[7] => start_addr[7].IN1
+start_addr[8] => start_addr[8].IN1
+start_addr[9] => start_addr[9].IN1
+clk_1m <= PLL25:PLL25_inst.c0
+rom_code[0] <= MUSIC:MUSIC_inst.q
+rom_code[1] <= MUSIC:MUSIC_inst.q
+rom_code[2] <= MUSIC:MUSIC_inst.q
+rom_code[3] <= MUSIC:MUSIC_inst.q
+
+
+|MUSIC_PLAY_CIRCUIT|FETCH_MUSIC:FETCH_MUSIC_inst|PLL25:PLL25_inst
 areset => areset.IN1
 inclk0 => sub_wire4[0].IN1
 c0 <= altpll:altpll_component.clk
 c1 <= altpll:altpll_component.clk
 
 
-|PLAYER|PLL25:PLL25_inst|altpll:altpll_component
+|MUSIC_PLAY_CIRCUIT|FETCH_MUSIC:FETCH_MUSIC_inst|PLL25:PLL25_inst|altpll:altpll_component
 inclk[0] => PLL25_altpll:auto_generated.inclk[0]
 inclk[1] => PLL25_altpll:auto_generated.inclk[1]
 fbin => ~NO_FANOUT~
@@ -103,7 +125,7 @@ fref <= <GND>
 icdrclk <= <GND>
 
 
-|PLAYER|PLL25:PLL25_inst|altpll:altpll_component|PLL25_altpll:auto_generated
+|MUSIC_PLAY_CIRCUIT|FETCH_MUSIC:FETCH_MUSIC_inst|PLL25:PLL25_inst|altpll:altpll_component|PLL25_altpll:auto_generated
 areset => pll1.ARESET
 clk[0] <= pll1.CLK
 clk[1] <= pll1.CLK1
@@ -114,7 +136,7 @@ inclk[0] => pll1.CLK
 inclk[1] => pll1.CLK1
 
 
-|PLAYER|FDIV:FDIV_inst
+|MUSIC_PLAY_CIRCUIT|FETCH_MUSIC:FETCH_MUSIC_inst|FDIV:FDIV_inst
 CLK => FULL.CLK
 CLK => Q1[0].CLK
 CLK => Q1[1].CLK
@@ -128,7 +150,7 @@ CLK => Q1[8].CLK
 PM <= FULL.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|PLAYER|CNT138T:CNT138T_inst
+|MUSIC_PLAY_CIRCUIT|FETCH_MUSIC:FETCH_MUSIC_inst|CNT138T:CNT138T_inst
 CLK => CNT[0].CLK
 CLK => CNT[1].CLK
 CLK => CNT[2].CLK
@@ -139,14 +161,44 @@ CLK => CNT[6].CLK
 CLK => CNT[7].CLK
 CLK => CNT[8].CLK
 CLK => CNT[9].CLK
-STATE[0] => Equal0.IN0
-STATE[0] => Equal2.IN3
-STATE[1] => Equal0.IN3
-STATE[1] => Equal2.IN0
-STATE[2] => Equal0.IN2
-STATE[2] => Equal2.IN2
-STATE[3] => Equal0.IN1
-STATE[3] => Equal2.IN1
+STATE[0] => Equal0.IN3
+STATE[0] => pre_state[0].DATAIN
+STATE[1] => Equal0.IN2
+STATE[1] => pre_state[1].DATAIN
+STATE[2] => Equal0.IN1
+STATE[2] => pre_state[2].DATAIN
+STATE[3] => Equal0.IN0
+STATE[3] => pre_state[3].DATAIN
+end_addr[0] => LessThan0.IN10
+end_addr[1] => LessThan0.IN9
+end_addr[2] => LessThan0.IN8
+end_addr[3] => LessThan0.IN7
+end_addr[4] => LessThan0.IN6
+end_addr[5] => LessThan0.IN5
+end_addr[6] => LessThan0.IN4
+end_addr[7] => LessThan0.IN3
+end_addr[8] => LessThan0.IN2
+end_addr[9] => LessThan0.IN1
+start_addr[0] => CNT.DATAB
+start_addr[0] => CNT[0].ADATA
+start_addr[1] => CNT.DATAB
+start_addr[1] => CNT[1].ADATA
+start_addr[2] => CNT.DATAB
+start_addr[2] => CNT[2].ADATA
+start_addr[3] => CNT.DATAB
+start_addr[3] => CNT[3].ADATA
+start_addr[4] => CNT.DATAB
+start_addr[4] => CNT[4].ADATA
+start_addr[5] => CNT.DATAB
+start_addr[5] => CNT[5].ADATA
+start_addr[6] => CNT.DATAB
+start_addr[6] => CNT[6].ADATA
+start_addr[7] => CNT.DATAB
+start_addr[7] => CNT[7].ADATA
+start_addr[8] => CNT.DATAB
+start_addr[8] => CNT[8].ADATA
+start_addr[9] => CNT.DATAB
+start_addr[9] => CNT[9].ADATA
 CNT8[0] <= CNT[0].DB_MAX_OUTPUT_PORT_TYPE
 CNT8[1] <= CNT[1].DB_MAX_OUTPUT_PORT_TYPE
 CNT8[2] <= CNT[2].DB_MAX_OUTPUT_PORT_TYPE
@@ -159,7 +211,7 @@ CNT8[8] <= CNT[8].DB_MAX_OUTPUT_PORT_TYPE
 CNT8[9] <= CNT[9].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|PLAYER|MUSIC:MUSIC_inst
+|MUSIC_PLAY_CIRCUIT|FETCH_MUSIC:FETCH_MUSIC_inst|MUSIC:MUSIC_inst
 address[0] => address[0].IN1
 address[1] => address[1].IN1
 address[2] => address[2].IN1
@@ -177,7 +229,7 @@ q[2] <= altsyncram:altsyncram_component.q_a
 q[3] <= altsyncram:altsyncram_component.q_a
 
 
-|PLAYER|MUSIC:MUSIC_inst|altsyncram:altsyncram_component
+|MUSIC_PLAY_CIRCUIT|FETCH_MUSIC:FETCH_MUSIC_inst|MUSIC:MUSIC_inst|altsyncram:altsyncram_component
 wren_a => ~NO_FANOUT~
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -220,7 +272,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|PLAYER|MUSIC:MUSIC_inst|altsyncram:altsyncram_component|altsyncram_odc1:auto_generated
+|MUSIC_PLAY_CIRCUIT|FETCH_MUSIC:FETCH_MUSIC_inst|MUSIC:MUSIC_inst|altsyncram:altsyncram_component|altsyncram_odc1:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -271,150 +323,36 @@ q_a[2] <= ram_block1a2.PORTADATAOUT
 q_a[3] <= ram_block1a3.PORTADATAOUT
 
 
-|PLAYER|F_CODE:F_CODE_inst
-INX[0] => INPUT_FOR_CODE[0].DATAA
-INX[1] => INPUT_FOR_CODE[1].DATAA
-INX[2] => INPUT_FOR_CODE[2].DATAA
-INX[3] => INPUT_FOR_CODE[3].DATAA
-KEYVALUE[0] => INPUT_FOR_CODE[0].DATAB
-KEYVALUE[1] => INPUT_FOR_CODE[1].DATAB
-KEYVALUE[2] => INPUT_FOR_CODE[2].DATAB
-KEYVALUE[3] => INPUT_FOR_CODE[3].DATAB
-STATE[0] => Equal0.IN1
-STATE[1] => Equal0.IN0
-STATE[2] => Equal0.IN3
-STATE[3] => Equal0.IN2
-CODE[0] <= WideOr11.DB_MAX_OUTPUT_PORT_TYPE
-CODE[1] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
-CODE[2] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
-CODE[3] <= <GND>
-H <= WideOr12.DB_MAX_OUTPUT_PORT_TYPE
-TO[0] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
-TO[1] <= WideOr7.DB_MAX_OUTPUT_PORT_TYPE
-TO[2] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
-TO[3] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
-TO[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
-TO[5] <= TO.DB_MAX_OUTPUT_PORT_TYPE
-TO[6] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
-TO[7] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
-TO[8] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
-TO[9] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
-TO[10] <= TO.DB_MAX_OUTPUT_PORT_TYPE
+|MUSIC_PLAY_CIRCUIT|ELECTRONIC_KEYBOARD:ELECTRONIC_KEYBOARD_inst
+ext_clk_25m => ext_clk_25m.IN1
+ext_rst_n => ext_rst_n.IN1
+key_v[0] => key_v[0].IN1
+key_v[1] => key_v[1].IN1
+key_v[2] => key_v[2].IN1
+key_v[3] => key_v[3].IN1
+key_h[0] <= arykeyscan:uut_arykeyscan.key_h
+key_h[1] <= arykeyscan:uut_arykeyscan.key_h
+key_h[2] <= arykeyscan:uut_arykeyscan.key_h
+key_h[3] <= arykeyscan:uut_arykeyscan.key_h
+keybord_code[0] <= arykeyscan:uut_arykeyscan.display_num
+keybord_code[1] <= arykeyscan:uut_arykeyscan.display_num
+keybord_code[2] <= arykeyscan:uut_arykeyscan.display_num
+keybord_code[3] <= arykeyscan:uut_arykeyscan.display_num
+keybord_code[4] <= arykeyscan:uut_arykeyscan.display_num
+keybord_code[5] <= arykeyscan:uut_arykeyscan.display_num
+keybord_code[6] <= arykeyscan:uut_arykeyscan.display_num
+keybord_code[7] <= arykeyscan:uut_arykeyscan.display_num
+keybord_code[8] <= arykeyscan:uut_arykeyscan.display_num
+keybord_code[9] <= arykeyscan:uut_arykeyscan.display_num
+keybord_code[10] <= arykeyscan:uut_arykeyscan.display_num
+keybord_code[11] <= arykeyscan:uut_arykeyscan.display_num
+keybord_code[12] <= arykeyscan:uut_arykeyscan.display_num
+keybord_code[13] <= arykeyscan:uut_arykeyscan.display_num
+keybord_code[14] <= arykeyscan:uut_arykeyscan.display_num
+keybord_code[15] <= arykeyscan:uut_arykeyscan.display_num
 
 
-|PLAYER|SPKER:SPKER_inst
-CLK => SPKS~reg0.CLK
-CLK => CNT11[0].CLK
-CLK => CNT11[1].CLK
-CLK => CNT11[2].CLK
-CLK => CNT11[3].CLK
-CLK => CNT11[4].CLK
-CLK => CNT11[5].CLK
-CLK => CNT11[6].CLK
-CLK => CNT11[7].CLK
-CLK => CNT11[8].CLK
-CLK => CNT11[9].CLK
-CLK => CNT11[10].CLK
-TN[0] => CNT11.DATAB
-TN[1] => CNT11.DATAB
-TN[2] => CNT11.DATAB
-TN[3] => CNT11.DATAB
-TN[4] => CNT11.DATAB
-TN[5] => CNT11.DATAB
-TN[6] => CNT11.DATAB
-TN[7] => CNT11.DATAB
-TN[8] => CNT11.DATAB
-TN[9] => CNT11.DATAB
-TN[10] => CNT11.DATAB
-SPKS <= SPKS~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|PLAYER|DFF1:DFF1_inst
-CLK => Q~reg0.CLK
-D => Q~reg0.DATAIN
-Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|PLAYER|seg7:uut_seg7
-clk => dtube_cs_n[0]~reg0.CLK
-clk => dtube_cs_n[1]~reg0.CLK
-clk => dtube_cs_n[2]~reg0.CLK
-clk => dtube_cs_n[3]~reg0.CLK
-clk => dtube_data[0]~reg0.CLK
-clk => dtube_data[1]~reg0.CLK
-clk => dtube_data[2]~reg0.CLK
-clk => dtube_data[3]~reg0.CLK
-clk => dtube_data[4]~reg0.CLK
-clk => dtube_data[5]~reg0.CLK
-clk => dtube_data[6]~reg0.CLK
-clk => dtube_data[7]~reg0.CLK
-clk => current_display_num[0].CLK
-clk => current_display_num[1].CLK
-clk => current_display_num[2].CLK
-clk => current_display_num[3].CLK
-clk => div_cnt[0].CLK
-clk => div_cnt[1].CLK
-clk => div_cnt[2].CLK
-clk => div_cnt[3].CLK
-clk => div_cnt[4].CLK
-clk => div_cnt[5].CLK
-clk => div_cnt[6].CLK
-clk => div_cnt[7].CLK
-rst_n => dtube_data[0]~reg0.PRESET
-rst_n => dtube_data[1]~reg0.PRESET
-rst_n => dtube_data[2]~reg0.PRESET
-rst_n => dtube_data[3]~reg0.PRESET
-rst_n => dtube_data[4]~reg0.PRESET
-rst_n => dtube_data[5]~reg0.PRESET
-rst_n => dtube_data[6]~reg0.ACLR
-rst_n => dtube_data[7]~reg0.ACLR
-rst_n => dtube_cs_n[0]~reg0.PRESET
-rst_n => dtube_cs_n[1]~reg0.PRESET
-rst_n => dtube_cs_n[2]~reg0.PRESET
-rst_n => dtube_cs_n[3]~reg0.PRESET
-rst_n => div_cnt[0].ACLR
-rst_n => div_cnt[1].ACLR
-rst_n => div_cnt[2].ACLR
-rst_n => div_cnt[3].ACLR
-rst_n => div_cnt[4].ACLR
-rst_n => div_cnt[5].ACLR
-rst_n => div_cnt[6].ACLR
-rst_n => div_cnt[7].ACLR
-rst_n => current_display_num[0].ACLR
-rst_n => current_display_num[1].ACLR
-rst_n => current_display_num[2].ACLR
-rst_n => current_display_num[3].ACLR
-display_num[0] => Selector3.IN8
-display_num[1] => Selector2.IN8
-display_num[2] => Selector1.IN8
-display_num[3] => Selector0.IN8
-display_num[4] => Selector3.IN7
-display_num[5] => Selector2.IN7
-display_num[6] => Selector1.IN7
-display_num[7] => Selector0.IN7
-display_num[8] => Selector3.IN6
-display_num[9] => Selector2.IN6
-display_num[10] => Selector1.IN6
-display_num[11] => Selector0.IN6
-display_num[12] => Selector3.IN5
-display_num[13] => Selector2.IN5
-display_num[14] => Selector1.IN5
-display_num[15] => Selector0.IN5
-dtube_cs_n[0] <= dtube_cs_n[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-dtube_cs_n[1] <= dtube_cs_n[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-dtube_cs_n[2] <= dtube_cs_n[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-dtube_cs_n[3] <= dtube_cs_n[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-dtube_data[0] <= dtube_data[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-dtube_data[1] <= dtube_data[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-dtube_data[2] <= dtube_data[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-dtube_data[3] <= dtube_data[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-dtube_data[4] <= dtube_data[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-dtube_data[5] <= dtube_data[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-dtube_data[6] <= dtube_data[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-dtube_data[7] <= dtube_data[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
-|PLAYER|arykeyscan:uut_arykeyscan
+|MUSIC_PLAY_CIRCUIT|ELECTRONIC_KEYBOARD:ELECTRONIC_KEYBOARD_inst|arykeyscan:uut_arykeyscan
 clk => clk.IN1
 rst_n => rst_n.IN1
 key_v[0] => key_v[0].IN1
@@ -443,7 +381,7 @@ display_num[14] <= display_num[14]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 display_num[15] <= display_num[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|PLAYER|arykeyscan:uut_arykeyscan|sigkeyscan:uut_sigkeyscan
+|MUSIC_PLAY_CIRCUIT|ELECTRONIC_KEYBOARD:ELECTRONIC_KEYBOARD_inst|arykeyscan:uut_arykeyscan|sigkeyscan:uut_sigkeyscan
 clk => key_value[0][0].CLK
 clk => key_value[0][1].CLK
 clk => key_value[0][2].CLK
@@ -524,7 +462,168 @@ key_neg <= key_neg.DB_MAX_OUTPUT_PORT_TYPE
 key_pos <= key_pos.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|PLAYER|STATE_CONTROL:STATE_CONTROL_inst
+|MUSIC_PLAY_CIRCUIT|PLAYER:PLAYER_inst
+ext_clk_25m => ext_clk_25m.IN1
+ext_rst_n => ext_rst_n.IN1
+clk_1m => clk_1m.IN1
+audio_code[0] => audio_code[0].IN1
+audio_code[1] => audio_code[1].IN1
+audio_code[2] => audio_code[2].IN1
+audio_code[3] => audio_code[3].IN1
+dtube_cs_n[0] <= seg7:uut_seg7.dtube_cs_n
+dtube_cs_n[1] <= seg7:uut_seg7.dtube_cs_n
+dtube_cs_n[2] <= seg7:uut_seg7.dtube_cs_n
+dtube_cs_n[3] <= seg7:uut_seg7.dtube_cs_n
+dtube_data[0] <= seg7:uut_seg7.dtube_data
+dtube_data[1] <= seg7:uut_seg7.dtube_data
+dtube_data[2] <= seg7:uut_seg7.dtube_data
+dtube_data[3] <= seg7:uut_seg7.dtube_data
+dtube_data[4] <= seg7:uut_seg7.dtube_data
+dtube_data[5] <= seg7:uut_seg7.dtube_data
+dtube_data[6] <= seg7:uut_seg7.dtube_data
+dtube_data[7] <= seg7:uut_seg7.dtube_data
+beep <= DFF1:DFF1_inst.Q
+
+
+|MUSIC_PLAY_CIRCUIT|PLAYER:PLAYER_inst|F_CODE:F_CODE_inst
+INX[0] => Decoder0.IN3
+INX[0] => Decoder1.IN2
+INX[1] => Decoder0.IN2
+INX[1] => Decoder1.IN1
+INX[2] => Decoder0.IN1
+INX[3] => Decoder0.IN0
+INX[3] => Decoder1.IN0
+CODE[0] <= WideOr11.DB_MAX_OUTPUT_PORT_TYPE
+CODE[1] <= WideOr10.DB_MAX_OUTPUT_PORT_TYPE
+CODE[2] <= WideOr9.DB_MAX_OUTPUT_PORT_TYPE
+CODE[3] <= <GND>
+H <= WideOr12.DB_MAX_OUTPUT_PORT_TYPE
+TO[0] <= WideOr8.DB_MAX_OUTPUT_PORT_TYPE
+TO[1] <= WideOr7.DB_MAX_OUTPUT_PORT_TYPE
+TO[2] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+TO[3] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+TO[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+TO[5] <= TO.DB_MAX_OUTPUT_PORT_TYPE
+TO[6] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+TO[7] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+TO[8] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+TO[9] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+TO[10] <= TO.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|MUSIC_PLAY_CIRCUIT|PLAYER:PLAYER_inst|SPKER:SPKER_inst
+CLK => SPKS~reg0.CLK
+CLK => CNT11[0].CLK
+CLK => CNT11[1].CLK
+CLK => CNT11[2].CLK
+CLK => CNT11[3].CLK
+CLK => CNT11[4].CLK
+CLK => CNT11[5].CLK
+CLK => CNT11[6].CLK
+CLK => CNT11[7].CLK
+CLK => CNT11[8].CLK
+CLK => CNT11[9].CLK
+CLK => CNT11[10].CLK
+TN[0] => CNT11.DATAB
+TN[1] => CNT11.DATAB
+TN[2] => CNT11.DATAB
+TN[3] => CNT11.DATAB
+TN[4] => CNT11.DATAB
+TN[5] => CNT11.DATAB
+TN[6] => CNT11.DATAB
+TN[7] => CNT11.DATAB
+TN[8] => CNT11.DATAB
+TN[9] => CNT11.DATAB
+TN[10] => CNT11.DATAB
+SPKS <= SPKS~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|MUSIC_PLAY_CIRCUIT|PLAYER:PLAYER_inst|DFF1:DFF1_inst
+CLK => Q~reg0.CLK
+D => Q~reg0.DATAIN
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|MUSIC_PLAY_CIRCUIT|PLAYER:PLAYER_inst|seg7:uut_seg7
+clk => dtube_cs_n[0]~reg0.CLK
+clk => dtube_cs_n[1]~reg0.CLK
+clk => dtube_cs_n[2]~reg0.CLK
+clk => dtube_cs_n[3]~reg0.CLK
+clk => dtube_data[0]~reg0.CLK
+clk => dtube_data[1]~reg0.CLK
+clk => dtube_data[2]~reg0.CLK
+clk => dtube_data[3]~reg0.CLK
+clk => dtube_data[4]~reg0.CLK
+clk => dtube_data[5]~reg0.CLK
+clk => dtube_data[6]~reg0.CLK
+clk => dtube_data[7]~reg0.CLK
+clk => current_display_num[0].CLK
+clk => current_display_num[1].CLK
+clk => current_display_num[2].CLK
+clk => current_display_num[3].CLK
+clk => div_cnt[0].CLK
+clk => div_cnt[1].CLK
+clk => div_cnt[2].CLK
+clk => div_cnt[3].CLK
+clk => div_cnt[4].CLK
+clk => div_cnt[5].CLK
+clk => div_cnt[6].CLK
+clk => div_cnt[7].CLK
+rst_n => dtube_data[0]~reg0.PRESET
+rst_n => dtube_data[1]~reg0.PRESET
+rst_n => dtube_data[2]~reg0.PRESET
+rst_n => dtube_data[3]~reg0.PRESET
+rst_n => dtube_data[4]~reg0.PRESET
+rst_n => dtube_data[5]~reg0.PRESET
+rst_n => dtube_data[6]~reg0.ACLR
+rst_n => dtube_data[7]~reg0.ACLR
+rst_n => dtube_cs_n[0]~reg0.PRESET
+rst_n => dtube_cs_n[1]~reg0.PRESET
+rst_n => dtube_cs_n[2]~reg0.PRESET
+rst_n => dtube_cs_n[3]~reg0.PRESET
+rst_n => div_cnt[0].ACLR
+rst_n => div_cnt[1].ACLR
+rst_n => div_cnt[2].ACLR
+rst_n => div_cnt[3].ACLR
+rst_n => div_cnt[4].ACLR
+rst_n => div_cnt[5].ACLR
+rst_n => div_cnt[6].ACLR
+rst_n => div_cnt[7].ACLR
+rst_n => current_display_num[0].ACLR
+rst_n => current_display_num[1].ACLR
+rst_n => current_display_num[2].ACLR
+rst_n => current_display_num[3].ACLR
+display_num[0] => Selector3.IN8
+display_num[1] => Selector2.IN8
+display_num[2] => Selector1.IN8
+display_num[3] => Selector0.IN8
+display_num[4] => Selector3.IN7
+display_num[5] => Selector2.IN7
+display_num[6] => Selector1.IN7
+display_num[7] => Selector0.IN7
+display_num[8] => Selector3.IN6
+display_num[9] => Selector2.IN6
+display_num[10] => Selector1.IN6
+display_num[11] => Selector0.IN6
+display_num[12] => Selector3.IN5
+display_num[13] => Selector2.IN5
+display_num[14] => Selector1.IN5
+display_num[15] => Selector0.IN5
+dtube_cs_n[0] <= dtube_cs_n[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dtube_cs_n[1] <= dtube_cs_n[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dtube_cs_n[2] <= dtube_cs_n[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dtube_cs_n[3] <= dtube_cs_n[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dtube_data[0] <= dtube_data[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dtube_data[1] <= dtube_data[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dtube_data[2] <= dtube_data[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dtube_data[3] <= dtube_data[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dtube_data[4] <= dtube_data[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dtube_data[5] <= dtube_data[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dtube_data[6] <= dtube_data[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dtube_data[7] <= dtube_data[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|MUSIC_PLAY_CIRCUIT|STATE_CONTROL:STATE_CONTROL_inst
 clk => cstate[0]~reg0.CLK
 clk => cstate[1]~reg0.CLK
 clk => cstate[2]~reg0.CLK
@@ -534,16 +633,36 @@ rst_n => cstate[1]~reg0.ACLR
 rst_n => cstate[2]~reg0.ACLR
 rst_n => cstate[3]~reg0.ACLR
 switch[0] => Equal0.IN3
-switch[0] => Equal1.IN3
-switch[1] => Equal0.IN2
-switch[1] => Equal1.IN2
-switch[2] => Equal0.IN0
-switch[2] => Equal1.IN1
+switch[0] => Equal1.IN0
+switch[1] => Equal0.IN0
+switch[1] => Equal1.IN3
+switch[2] => Equal0.IN2
+switch[2] => Equal1.IN2
 switch[3] => Equal0.IN1
-switch[3] => Equal1.IN0
+switch[3] => Equal1.IN1
 cstate[0] <= cstate[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 cstate[1] <= cstate[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 cstate[2] <= cstate[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 cstate[3] <= cstate[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+end_addr[0] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+end_addr[1] <= <VCC>
+end_addr[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+end_addr[3] <= <VCC>
+end_addr[4] <= <GND>
+end_addr[5] <= <GND>
+end_addr[6] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+end_addr[7] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+end_addr[8] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+end_addr[9] <= <GND>
+start_addr[0] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+start_addr[1] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+start_addr[2] <= <GND>
+start_addr[3] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+start_addr[4] <= <GND>
+start_addr[5] <= <GND>
+start_addr[6] <= <GND>
+start_addr[7] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+start_addr[8] <= <GND>
+start_addr[9] <= <GND>
 
 

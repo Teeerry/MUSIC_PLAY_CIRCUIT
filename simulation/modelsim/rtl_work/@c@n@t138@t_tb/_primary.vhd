@@ -1,4 +1,4 @@
 library verilog;
 use verilog.vl_types.all;
-entity SPKER_tb is
-end SPKER_tb;
+entity CNT138T_tb is
+end CNT138T_tb;

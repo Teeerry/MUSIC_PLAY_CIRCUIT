@@ -1,4 +1,4 @@
-PLL_Name	PLL25:PLL25_inst|altpll:altpll_component|PLL25_altpll:auto_generated|pll1
+PLL_Name	FETCH_MUSIC:FETCH_MUSIC_inst|PLL25:PLL25_inst|altpll:altpll_component|PLL25_altpll:auto_generated|pll1
 PLLJITTER	37
 PLLSPEmax	84
 PLLSPEmin	-53
